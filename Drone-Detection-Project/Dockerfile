@@ -26,4 +26,5 @@ RUN test -f models/YOLOv5_model/weights/last.pt || \
     (echo "Model file missing: models/YOLOv5_model/weights/last.pt" && exit 1)
 
 # Default command: run the headless main logic
-CMD ["python", "app/main_logic.py"]
+CMD ["python", "-m", "app.main_logic"]
+
