@@ -12,14 +12,14 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy and install Python dependencies
-COPY requirements.txt .
+COPY Drone-Detection-Project/requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy app code
-COPY app/ ./app
+COPY Drone-Detection-Project/app ./app
 
-# Copy only the model weights (keep your current folder structure)
-COPY models/YOLOv5_model/weights/last.pt ./models/YOLOv5_model/weights/last.pt
+# Copy model weights
+COPY Drone-Detection-Project/models/YOLOv5_model/weights/last.pt ./models/YOLOv5_model/weights/last.pt
 
 # Optional: verify that the model file exists
 RUN test -f models/YOLOv5_model/weights/last.pt || \
