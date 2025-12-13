@@ -1,17 +1,15 @@
-<<<<<<< HEAD
+
 # ---------------------------
 # PyTorch CPU (Official index)
 # ---------------------------
 --index-url https://download.pytorch.org/whl/cpu
 
-=======
 # Core PyTorch CPU version
->>>>>>> c743679 (Update code without touching README)
+
 torch==2.0.1
 torchvision==0.15.2
 torchaudio==2.0.2
 
-<<<<<<< HEAD
 # ---------------------------
 # Computer Vision (Docker-safe)
 # ---------------------------
@@ -44,7 +42,7 @@ ultralytics==8.0.186
 # ---------------------------
 # Utilities
 # ---------------------------
-=======
+
 # GUI Framework
 PyQt5==5.15.9
 PyQt5-sip==12.12.1
@@ -61,19 +59,16 @@ scipy==1.10.1
 ultralytics==8.0.186
 
 # Utilities
->>>>>>> c743679 (Update code without touching README)
+
 pathlib2==2.3.0
 matplotlib==3.7.1
 seaborn==0.12.2
 
-<<<<<<< HEAD
 # ---------------------------
 # Optional: Jupyter
 # ---------------------------
 # jupyter==1.0.0
 # ipykernel==6.22.0
-=======
 # Optional: Jupyter support if needed
 jupyter==1.0.0
 ipykernel==6.22.0
->>>>>>> c743679 (Update code without touching README)
