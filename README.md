@@ -1,4 +1,101 @@
-# Platform for detecting Phantom 4 and Bayraktar TB2 drones with databases integration
+## Drone Detection System (YOLOv5)
+
+This project is a Drone Detection System that analyzes both images and videos to detect drones such as Bayraktar TB2 and Phantom 4 using a custom-trained YOLOv5 deep learning model.
+
+The system provides a fully automated pipeline that includes:
+- Image detection (process all .jpg images in a folder).
+- Video detection (process multiple drone videos automatically).
+- Object extraction and saving detected drones to an output directory.
+- Dockerized deployment for consistent cross-platform execution.
+- CPU-only PyTorch optimized docker environment.
+
+-----
+
+### **Features:**
+
+**YOLOv5 Custom Model**
+   Uses a trained model located at:
+```
+models/YOLOv5_model/weights/last.pt
+```
+
+**Image Analysis**
+Automatically processes all test images from:
+```
+data/images/TestImages
+```
+**Detected drones are saved to:**
+```
+data/images/Output
+```
+**Video Analysis**
+Processes multiple drones videos automatically:
+```
+data/videos/Bayraktar.mp4
+data/videos/Phantom4.mp4
+```
+**Docker Support**
+The entire project runs inside Docker using:
+- Python 3.10.
+- CPU-optimized PyTorch.
+- OpenCV installed via apt for stability.
+- Stable, reproducible builds.
+
+
+⚠️ **Important Note:**
+Due to recent changes in the ultralytics YOLOv5 library, running the Docker container may fail at runtime when loading the model using torch.hub.load or from yolov5 import YOLOv5.
+- The container builds successfully, demonstrating the project structure and workflow.
+- For demonstration purposes, you can still show the project logic, folder structure, and sample output images/videos included in the repository.
+- To actually run the detection, you may need to adjust library versions or run the scripts locally in a compatible Python environment.
+-----
+
+### **How It Works**
+
+1. Load the YOLOv5 Model
+The custom model is loaded from inside the container:
+```
+model_path = "models/YOLOv5_model/weights/last.pt"
+```
+2. Analyze Images Automatically
+All ```.jpg``` files in the TestImages directory are processed.
+3. Analyze Multiple Videos
+The system processes both drone videos and extracts detections.
+4. Save All Outputs
+All detected drone crops and annotated frames are saved in:
+```
+data/images/Output
+```
+------
+
+### **Running With Docker**
+**Build the image:**
+```
+docker build -t homams/drone-detector:latest .
+```
+**Run and process images/videos:**
+```
+docker run --rm -it \
+    -v /path/data/images:/app/data/images \
+    -v /path/data/videos:/app/data/videos \
+    -v /path/data/images/Output:/app/data/output \
+    homams/drone-detector:latest
+```
+⚠️ **Note:** Running the container may fail at runtime due to library compatibility issues (see note above).
+
+---
+
+### **Purpose of the Project**
+
+This drone-detection platform is designed for:
+
+- New objects recognition.
+- Dataset testing.
+- Model validation.
+- Automated detection pipelines.
+
+It provides a simple yet robust environment to test YOLOv5 detection models on both images and videos with minimal configuration.
+
+----------
 
 ## The initial outline of the system before creating the user interfaces:
 
