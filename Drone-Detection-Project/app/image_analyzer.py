@@ -4,9 +4,15 @@ from pathlib import Path
 
 class ImageAnalyzer:
     def __init__(self, model_path):
-        self.model = torch.hub.load('ultralytics/yolov5', 'custom', path=model_path, force_reload=True)
+        # Load local YOLOv5 model via torch hub
+        self.model = torch.hub.load(
+            'ultralytics/yolov5',
+            'custom',
+            path=model_path,
+            force_reload=True
+        )
 
-    def analyze_image(self, image_path, output_folder="data/Our_DataBase"):
+    def analyze_image(self, image_path, output_folder="data/images/Output"):
         output_folder = Path(output_folder)
         output_folder.mkdir(parents=True, exist_ok=True)
 
