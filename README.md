@@ -63,6 +63,26 @@ Due to recent changes in the ultralytics YOLOv5 library, running the Docker cont
 - To actually run the detection, you may need to adjust library versions or run the scripts locally in a compatible Python environment.
 -----
 
+## 🔐 Model Weights Availability
+
+The trained YOLOv5 model weights (`last.pt`) are **not included in this public repository**.
+
+### Reason
+- The model represents a custom-trained asset developed specifically for this project.
+- To protect intellectual property and prevent unauthorized commercial or unintended use, the pretrained weights are withheld.
+
+### What is included
+- Full training and inference pipeline
+- Model architecture and configuration
+- Data processing and evaluation logic
+- Dockerized deployment structure
+- Sample outputs for demonstration
+
+### Access to Weights
+Pretrained weights may be shared **upon request for academic, research, or evaluation purposes**.
+
+--------
+
 ### **How It Works**
 
 1. Load the YOLOv5 Model
